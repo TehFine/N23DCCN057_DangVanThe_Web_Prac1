@@ -10,35 +10,49 @@ export default async function ProductDetail({ params }) {
   const product = await getProduct(id)
 
   return (
-    <div className="p-10 max-w-6xl mx-auto">
+     <div className="max-w-6xl mx-auto px-4 py-10">
 
-      <div className="grid md:grid-cols-2 gap-10">
+      {/* Back Button */}
+      <a
+        href="/"
+        className="text-blue-600 hover:underline mb-6 inline-block"
+      >
+        ← Back to products
+      </a>
 
-        <img
-          src={product.image}
-          alt={product.title}
-          className="w-full h-96 object-contain"
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
+        {/* Product Image */}
+        <div className="bg-white p-6 rounded-xl shadow">
+
+          <img
+            src={product.image}
+            alt={product.title}
+            className="w-full h-72 md:h-96 object-contain"
+          />
+
+        </div>
+
+        {/* Product Info */}
         <div>
 
-          <h1 className="text-3xl font-bold mb-4">
+          <h1 className="text-2xl md:text-3xl font-bold mb-4">
             {product.title}
           </h1>
 
           <p className="text-gray-500 mb-4">
-            {product.category}
+            Category: {product.category}
           </p>
 
-          <p className="text-gray-700 mb-6">
+          <p className="text-gray-700 mb-6 leading-relaxed">
             {product.description}
           </p>
 
-          <p className="text-2xl font-bold text-green-600 mb-6">
+          <p className="text-3xl font-bold text-green-600 mb-6">
             ${product.price}
           </p>
 
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
+          <button className="w-full md:w-auto bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition">
             Add to Cart
           </button>
 
