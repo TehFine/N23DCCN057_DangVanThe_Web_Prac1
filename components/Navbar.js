@@ -1,12 +1,42 @@
+import Link from "next/link"
+
 export default function Navbar() {
-    return (
-        <nav className="flex justify-between items-center p-6 bg-white shadow-md">
-           <h1 className="text-2xl font-bold text-blue-600">MyStore</h1>
-          <div className="space-x-6 hidden md:flex">
-          <a href="#" className="hover:text-blue-500">Home</a>
-          <a href="#" className="hover:text-blue-500">Products</a>
+
+  return (
+
+    <nav className="bg-white shadow-md sticky top-0 z-50 ">
+
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+        {/* Logo */}
+        <Link href="/" className="text-2xl font-bold text-blue-600">
+          MyStore
+        </Link>
+
+        {/* Menu */}
+        <div className="hidden md:flex space-x-8 text-gray-600 font-medium">
+
+          <Link href="/" className="hover:text-blue-600 transition">
+            Home
+          </Link>
+
+          <Link href="/" className="hover:text-blue-600 transition">
+            Products
+          </Link>
+
+
         </div>
-             <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">Cart (0)</button>
-        </nav>
-    );
+
+       
+
+        {/* Cart */}
+        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+          🛒 Cart (0)
+        </button>
+
+      </div>
+
+    </nav>
+
+  )
 }
